@@ -136,3 +136,5 @@ plt.title("Signal 29Hz sampled @12Hz")
 plt.xlabel("n")
 plt.ylabel("Amplitude")
 plt.stem(n,x33)
+
+plt.show()
