@@ -2,7 +2,7 @@
 """
 Spyder Editor
 
-This is a temporary script file.
+@author: Arnab Das
 """
 
 import numpy as np
@@ -20,7 +20,7 @@ plt.plot(t,x)
 
 #fs3 = 20
 fs3 = 20
-n3 = np.linspace(0,fs3,fs3)
+n3 = np.arange(0,fs3,1)
 x3 = np.sin(2*np.pi*(f1/fs3)*n3)
 plt.subplot(2,2,2)
 plt.title("Signal sampled @ 20Hz")
@@ -30,7 +30,7 @@ plt.stem(n3,x3)
 
 #fs2 = 12
 fs2 = 12
-n2 = np.linspace(0,fs2,fs2)
+n2 = np.arange(0,fs2,1)
 x2 = np.sin(2*np.pi*(f1/fs2)*n2)
 plt.subplot(2,2,3)
 plt.title("Signal sampled @ 12Hz")
@@ -40,7 +40,7 @@ plt.stem(n2,x2)
 
 #fs1 = 8
 fs1 = 8
-n1 = np.linspace(0,fs1,fs1)
+n1 = np.arange(0,fs1,1)
 x1 = np.sin(2*np.pi*(f1/fs1)*n1)
 plt.subplot(2,2,4)
 plt.title("Signal sampled @ 8Hz")
@@ -111,8 +111,8 @@ fs = 12
 plt.figure()
 t = np.arange(0,1,0.01)
 x1 = np.sin(2*np.pi*f1*t)
-n = np.linspace(0,fs,fs)
-x11 = np.sin(2*np.pi*(f2/fs)*n)
+n = np.arange(0,fs,1)
+x11 = np.sin(2*np.pi*(f1/fs)*n)
 plt.subplot(3,1,1)
 plt.title("Signal 5Hz sampled @12Hz")
 plt.xlabel("n")
@@ -130,7 +130,7 @@ plt.stem(n,x22)
 
 f3 = 29
 x3 = np.sin(2*np.pi*f3*t)
-x33 = np.sin(2*np.pi*(f2/fs)*n)
+x33 = np.sin(2*np.pi*(f3/fs)*n)
 plt.subplot(3,1,3)
 plt.title("Signal 29Hz sampled @12Hz")
 plt.xlabel("n")
