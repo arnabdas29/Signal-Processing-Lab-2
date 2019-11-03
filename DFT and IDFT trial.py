@@ -9,10 +9,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 xn = np.asarray([0,1,2,3])
-xk = np.asarray([1,2,3,4])
 N = len(xn)
 result_dft = []
 result_idft = []
+a = np.arange(0,N,1)
+plt.subplot(3,1,1)
+plt.title("Signal")
+plt.stem(a,xn)
 
 """DFT"""
 for k in range(N):
@@ -25,9 +28,11 @@ for k in range(N):
     result_dft.append(mult1)
 print(result_dft)
 
-a = np.arange(0,N,1)
-plt.subplot(2,1,1)
+plt.subplot(3,1,2)
+plt.title("DFT")
 plt.stem(a,result_dft)
+
+xk = result_dft
     
 """IDFT"""
 for n in range(N):
@@ -39,5 +44,8 @@ for n in range(N):
         mult1 = int(np.abs(mult))
     result_idft.append(mult/N)
 print(result_idft)
-plt.subplot(2,1,2)
+plt.subplot(3,1,3)
+plt.title("IDFT")
 plt.stem(a,result_idft)
+
+plt.show()
