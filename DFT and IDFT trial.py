@@ -13,7 +13,6 @@ xk = np.asarray([1,2,3,4])
 N = len(xn)
 result_dft = []
 result_idft = []
-fs=1000
 
 """DFT"""
 for k in range(N):
