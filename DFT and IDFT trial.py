@@ -13,21 +13,32 @@ xk = np.asarray([1,2,3,4])
 N = len(xn)
 result_dft = []
 result_idft = []
+fs=1000
 
 """DFT"""
 for k in range(N):
     mult = 0
+    mult1 = 0
     for n in range(N):
         exp = np.exp((-1j*2*np.pi*n*k)/N)
-        mult += xn[n]*exp
-    result_dft.append(mult)
+        mult += np.dot(xn[n],exp)
+        mult1 = int(np.abs(mult))
+    result_dft.append(mult1)
 print(result_dft)
+
+a = np.arange(0,N,1)
+plt.subplot(2,1,1)
+plt.stem(a,result_dft)
     
 """IDFT"""
 for n in range(N):
     mult = 0
+    mult1 = 0
     for k in range(N):
         exp = np.exp((1j*2*np.pi*n*k)/N)
-        mult += xk[n]*exp
+        mult += np.dot(xk[k],exp)
+        mult1 = int(np.abs(mult))
     result_idft.append(mult/N)
 print(result_idft)
+plt.subplot(2,1,2)
+plt.stem(a,result_idft)
