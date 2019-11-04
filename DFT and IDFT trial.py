@@ -42,7 +42,7 @@ for n in range(N):
         exp = np.exp((1j*2*np.pi*n*k)/N)
         mult += np.dot(xk[k],exp)
         mult1 = int(np.abs(mult))
-    result_idft.append(mult/N)
+    result_idft.append(mult1/N)
 print(result_idft)
 plt.subplot(3,1,3)
 plt.title("IDFT")
