@@ -36,3 +36,42 @@ plt.subplot(2,2,3)
 plt.title("x3[n] - Circular Convolution")
 plt.stem(a,xn3)
 plt.show()
+
+"""Check"""
+dft1 = []
+dft2 = []
+xk = []
+idft = []
+
+for k in range(N1):
+    mult = 0
+    mult1 = 0
+    for n in range(N1):
+        exp = np.exp((-1j*2*np.pi*n*k)/N1)
+        mult += np.dot(xn1[n],exp)
+    dft1.append(mult)
+    
+for k in range(N2):
+    mult = 0
+    mult1 = 0
+    for n in range(N2):
+        exp = np.exp((-1j*2*np.pi*n*k)/N2)
+        mult += np.dot(xn2[n],exp)
+    dft2.append(mult)
+
+for i in range(N1):
+    xk.append(np.dot(dft1[i],dft2[i]))
+
+for n in range(N1):
+    mult = 0
+    mult1 = 0
+    for k in range(N1):
+        exp = np.exp((1j*2*np.pi*n*k)/N1)
+        mult += np.dot(xk[k],exp)
+    idft.append(mult/N1)
+
+plt.subplot(2,2,4)
+plt.title("X1[k]*X2[k]")
+plt.stem(a,idft)
+
+plt.show()
