@@ -44,21 +44,16 @@ xk = []
 idft = []
 
 for k in range(N1):
-    mult = 0
     mult1 = 0
+    mult2 = 0
     for n in range(N1):
-        exp = np.exp((-1j*2*np.pi*n*k)/N1)
-        mult += np.dot(xn1[n],exp)
-    dft1.append(mult)
+        exp1 = np.exp((-1j*2*np.pi*n*k)/N1)
+        exp2 = np.exp((-1j*2*np.pi*n*k)/N2)
+        mult1 += np.dot(xn1[n],exp1)
+        mult2 += np.dot(xn2[n],exp2)
+    dft1.append(mult1)
+    dft2.append(mult2)
     
-for k in range(N2):
-    mult = 0
-    mult1 = 0
-    for n in range(N2):
-        exp = np.exp((-1j*2*np.pi*n*k)/N2)
-        mult += np.dot(xn2[n],exp)
-    dft2.append(mult)
-
 for i in range(N1):
     xk.append(np.dot(dft1[i],dft2[i]))
 
