@@ -8,18 +8,25 @@ Created on Fri Nov  8 19:42:05 2019
 import numpy as np
 import matplotlib.pyplot as plt
 
-xn1 = np.asarray([2,1,2,1])
+xn1 = np.asarray([1,1,2,2])
 xn2 = np.asarray([1,2,3,4])
+temp = np.copy(xn2)
+xn22 = np.copy(temp)
+
 xn3 = []
 N1 = len(xn1)
 N2 = len(xn2)
 
+#to invert
+for i in range(1,N2,2):
+    xn22[i] = temp[N2-i]
+    
 n1 = np.linspace(0,N1,N1)
 n2 = np.linspace(0,N2,N2)
 
 """Circular Convolution"""
 for m in range(N1):
-    temp = np.roll(xn2,-m) # Circular Shift
+    temp = np.roll(xn22,1*m) # Circular Shift
     mult = 0
     for n in range(N2):
        mult += np.dot(xn1[n],temp[n])
@@ -43,6 +50,7 @@ dft2 = []
 xk = []
 idft = []
 
+"""DFT for x1[n] and x2[n]"""
 for k in range(N1):
     mult1 = 0
     mult2 = 0
@@ -57,6 +65,7 @@ for k in range(N1):
 for i in range(N1):
     xk.append(np.dot(dft1[i],dft2[i]))
 
+"""IDFT for x3[k]"""
 for n in range(N1):
     mult = 0
     mult1 = 0
