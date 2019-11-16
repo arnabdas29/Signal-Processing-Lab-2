@@ -18,7 +18,7 @@ N1 = len(xn1)
 N2 = len(xn2)
 
 #to invert
-for i in range(1,N2,2):
+for i in range(1,N2,1):
     xn22[i] = temp[N2-i]
     
 n1 = np.linspace(0,N1,N1)
