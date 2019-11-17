@@ -14,6 +14,10 @@ m = len(hn)
 l = int(input("Input length of subdomain: "))
 N = m+l-1
 
+if(N<l):
+    print("N is smaller than l......exiting")
+    exit()
+
 x1=xn[0:l];x2=xn[l:2*l];x3=xn[2*l:3*l]
 
 #zero padding xn
