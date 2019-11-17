@@ -1,55 +1,48 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Nov 16 17:54:17 2019
+Created on Sun Nov 17 12:02:52 2019
 
 @author: Arnab Das
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 xn = [1,2,3,4,5,6,7,8,9]
 hn = [1,2,3]
 
-m = 3  #length of each subdomain
-l = len(hn)
+m = len(hn)
+l = int(input("Input length of subdomain: "))
 N = m+l-1
 
-if(N<l):
-    print("N is smaller than l......exiting")
-    exit()
-# creating subdomains
-xn1 = xn[0:m]
-xn2 = xn[m:2*m]
-xn3 = xn[2*m:3*m]
+x1=xn[0:l];x2=xn[l:2*l];x3=xn[2*l:3*l]
 
-a = N-m ; z = 0    #zero padding for xn
-b = N-l ; z = 0    #zero padding for xn
-for i in range(a):
-    xn1.append(z)
-    xn2.append(z)
-    xn3.append(z)
-for j in range(b):
-    hn.append(z)
+#zero padding xn
+for i in range(N-len(x1)):
+    x1.append(0)
+for i in range(N-len(x2)):
+    x2.append(0)
+for i in range(N-len(x3)):
+    x3.append(0)
 
-"""Circular convolution""" 
-y1 = [];y2 = [];y3 = []; y = []
-n1 = np.linspace(0,N,N)
-
+#zero padding hn    
+for j in range(N-m):
+    hn.append(0)
+    
+"""Circular Convolution"""
+y1 = [];y2=[];y3=[];y4=[]
 temp = np.copy(hn)
 hn1 = np.copy(temp)
+#to invert
 for i in range(1,N,1):
     hn1[i] = temp[N-i]
 
-for m1 in range(N):
-    temp = np.roll(hn1,m1) # Circular Shift 
-    mult1 = 0
-    mult2 = 0
-    mult3 = 0
+for m in range(N):
+    temp = np.roll(hn1,m) # Circular Shift
+    mult1 = mult2 = mult3 = mult4 = 0
     for n in range(N):
-       mult1 += np.dot(xn1[n],temp[n])
-       mult2 += np.dot(xn2[n],temp[n])
-       mult3 += np.dot(xn3[n],temp[n])
+       mult1 += np.dot(x1[n],temp[n])
+       mult2 += np.dot(x2[n],temp[n])
+       mult3 += np.dot(x3[n],temp[n])
     y1.append(mult1)
     y2.append(mult2)
     y3.append(mult3)
