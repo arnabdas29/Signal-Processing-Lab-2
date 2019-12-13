@@ -4,7 +4,7 @@
 
 ### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+"Think twice, code once."
 
 ```markdown
 while(noSuccess){
@@ -18,7 +18,7 @@ For more details see [GitHub Flavored Markdown](https://guides.github.com/featur
 
 ### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/arnabdas29/Signal-Processing-Lab-2/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+“Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live”
 
 ### Support or Contact
 
