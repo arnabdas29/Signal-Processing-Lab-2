@@ -24,8 +24,8 @@ for k in range(N):
     for n in range(N):
         exp = np.exp((-1j*2*np.pi*n*k)/N)
         mult += np.dot(xn[n],exp)
-        mult1 = int(np.abs(mult))
-    result_dft.append(mult1)
+       
+    result_dft.append(mult)
 print(result_dft)
 
 plt.subplot(3,1,2)
