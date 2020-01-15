@@ -95,8 +95,10 @@ def filter_type(c1,a,N):
         hdw[ind1] = 1
     elif c1 == 3:
         print("Designing a BPF")
+        #code for ideal BPF
     elif c1 == 4:
         print("Designing a BSP")
+        #code for ideal BSF
     else:
         print("Error 404!...Wrong Filt_type Option!")
         quit()
