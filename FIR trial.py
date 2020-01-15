@@ -98,7 +98,7 @@ def filter_type(c1,a,N):
     elif c1 == 4:
         print("Designing a BSP")
     else:
-        print("Error 404!...Wrong Mag_res Option!")
+        print("Error 404!...Wrong Filt_type Option!")
         quit()
     hdn = idtft(hdw)
     print(hdn)
