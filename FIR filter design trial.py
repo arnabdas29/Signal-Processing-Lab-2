@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Created on Fri Feb  7 21:22:53 2020
 
-This is a temporary script file.
+@author: Arnab Das
 """
 
 import numpy as np
 import scipy.integrate
 
-def fil_coeff(hdn,wn):
+def fil_coeff(hdn,wn,N):
     h = []
     result = np.multiply(hdn,wn)
-    for i in range(len(result)):
-        if result[i]!=0:
-            h.append(result[i])
+    for i in range(N):
+        h.append(result[i])
     return h
     
     
@@ -74,7 +73,7 @@ def window_type(c2,N,a,hdn):
     for i in range(N,len(hdn),1):
             w.append(0)
     print("\nWindow Function: ");print(w[0:N])
-    hn = fil_coeff(hdn,w)
+    hn = fil_coeff(hdn,w,N)
     return hn
         
 #choices
