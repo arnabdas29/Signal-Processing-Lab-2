@@ -13,9 +13,7 @@ def fil_coeff(hdn,wn,N):
     result = np.multiply(hdn,wn)
     for i in range(N):
         h.append(result[i])
-    return h
-    
-    
+    return h   
    
 def filter_type(c1,N,a):
     hdn = []
