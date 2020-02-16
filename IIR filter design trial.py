@@ -17,7 +17,7 @@ b,a = signal.butter(N,wn,btype = 'low',analog=True,output='ba')#Design an Nth or
 z,p,k = signal.butter(N,wn,btype = 'low',analog=True,output='zpk')
 
 #digital transfer function
-z1,p1 = signal.bilinear(b, a, fs)#Return a digital IIR filter from an analog one using a bilinear transform.
+b1,a1 = signal.bilinear(b, a, fs)#Return a digital IIR filter from an analog one using a bilinear transform.
 z2,p2,k2 = signal.bilinear_zpk(z, p, k, fs)#Return a digital IIR filter from an analog one using a bilinear transform.
 
 #Compute frequency response of analog filter.
