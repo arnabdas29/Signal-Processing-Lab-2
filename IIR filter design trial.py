@@ -29,7 +29,7 @@ plt.grid()
 plt.show()
 
 #Compute frequency response of digital filter.
-zd, pd, kd = signal.butter(N, wn, output='zpk', fs=1000)
+zd, pd, kd = signal.butter(N, wn/fs, output='zpk')
 w, h = signal.freqz_zpk(zd, pd ,kd , fs=1000)
 fig = plt.figure()
 ax1 = fig.add_subplot(1, 1, 1)
